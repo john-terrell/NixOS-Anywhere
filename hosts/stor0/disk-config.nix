@@ -126,12 +126,14 @@
           topology = {
             type = "topology";
             vdev = [
-              mode = "mirror";
-              members = [
-                "array_11"
-                "array_12"
-                "array_13"
-              ]
+              {
+                mode = "mirror";
+                members = [
+                    "array_11"
+                    "array_12"
+                    "array_13"
+                ];
+              };
             ];
           };
         };
