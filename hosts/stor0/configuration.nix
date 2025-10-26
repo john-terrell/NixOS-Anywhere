@@ -77,6 +77,8 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    pciutils
+    wget
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -90,9 +92,12 @@
     ];
     hashedPassword = "$y$j9T$AeqCH7AXFUgNCdMQOid8u.$B/J278PehmzkpD4CJ.S1ETishYmpNAsvo1OK5iaKAoC";
     packages = with pkgs; [
-      git
-      wget
     ];
+    openssh = {
+        authorizedKeys.keys = [
+         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/eqBF4qIn6LVLAXhTajccYtB/7m0vZ4qEqNSFKjkyrBCPxfs5jxOnp6Vwp+LdqBm+ZMeCr0t+U0yyayCVGjiTEFYYVT5VyZKyC+M/RJni/lo8nOi4Ah+GxuKyLzQnIAfTm8oeKZ8uyWY++RMZ9mOMBwaHfW97qZApAL+13A93N1Z31K68Siqd6nZojQ1Cvp3/zd+irwjYI7qNbNggMXsMNWYlZOZOxfxVx3jnS0e4b6Hr+L/ChbbTXqi13G3J3LUFFn+k76Pw5+QznOcWtkHq2RctpEhnWl+Px1WjK6blsZ2+pzHK+TAcqZd3vyPfW8tKriyOtwuCKkllDI8TqDe/JW8iGBtglB/8m2L0rmTHGnGjaai6Gk93c92NW2+NB4y8URGENTT0utkpWMxNqtteq40fpLEvPtB2Hop3hViz8RffLdAsbT0B3OrsDE9HXIPtEneLtymvff7we/vtIqw02H3kFUlHP+I623MpjvtTVcWx36c2Fp6nwufl59QvFb0="
+        ];
+    };
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
