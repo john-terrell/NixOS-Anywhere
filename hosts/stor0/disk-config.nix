@@ -265,7 +265,6 @@
       };
       stor = {
         type = "zpool";
-        mountpoint = "/stor";
         options.cachefile = "none";
         mode = {
           topology = {
