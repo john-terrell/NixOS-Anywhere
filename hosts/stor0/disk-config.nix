@@ -77,6 +77,150 @@
           };
         };
       };
+      array_21 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-Hitachi_HUS724040ALE641_PCG5GBNB";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_22 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-ST4000VN008-2DR166_ZDHBPEKF";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_23 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN0TTJW";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_31 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-WDC_WD40EFRX-68WT0N0_WD-WCC4E1320049";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_32 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-WDC_WD40EFRX-68WT0N0_WD-WCC4E0AX4P33";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_33 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-WDC_WD40EFRX-68WT0N0_WD-WCC4E1303594";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_41 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-Hitachi_HUS724040ALE641_PCG5JNKB";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_42 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-Hitachi_HUS724040ALE641_PCGUYYPB";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
+      array_43 = {
+        type = "disk";
+        device = "/dev/disk/by-id/ata-ST4000DM004-2CV104_ZFN0TSRW";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "stor";
+              };
+            };
+          };
+        };
+      };
     };
     zpool = {
       rpool = {
@@ -121,7 +265,8 @@
       };
       stor = {
         type = "zpool";
-        options.cacheFile = "none";
+        mountpoint = "/stor";
+        options.cachefile = "none";
         mode = {
           topology = {
             type = "topology";
@@ -132,6 +277,30 @@
                     "array_11"
                     "array_12"
                     "array_13"
+                ];
+              }
+              {
+                mode = "mirror";
+                members = [
+                    "array_21"
+                    "array_22"
+                    "array_23"
+                ];
+              }
+              {
+                mode = "mirror";
+                members = [
+                    "array_31"
+                    "array_32"
+                    "array_33"
+                ];
+              }
+              {
+                mode = "mirror";
+                members = [
+                    "array_41"
+                    "array_42"
+                    "array_43"
                 ];
               }
             ];
